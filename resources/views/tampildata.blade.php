@@ -10,8 +10,9 @@
     @endif
     <div class="container">
     <div class="d-flex justify-content-end mt-2">
-    <a class="btn btn-primary ms-5" href="/tambahdata" role="button" 
-    aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-square-plus"></i>  Tambah</a>
+    <a class="btn btn-primary ms-5" href="/produk/tambahdata" role="button" 
+    aria-expanded="false" aria-controls="collapseExample"><i class="fa-solid fa-square-plus"></i>  Add</a>
+    <a href={{ "/dashboard" }} class="btn btn-danger"><i class="fa fa-sign-out" aria-hidden="true"></i> Back</a>
     </div>
 
       <table class="table table-bordered text-center my-2">

@@ -46,7 +46,7 @@ class ProdukController extends Controller
             $data['poto'] = $file;
         }
         $data = Produk::create($data);
-        return redirect()->route('tampildata')->with('Success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('produk.tampildata')->with('Success', 'Data Berhasil Ditambahkan');
     }
 
     public function detaildata($id)
@@ -77,7 +77,7 @@ class ProdukController extends Controller
             $data['poto'] = $file;
         }
         $produk->update($data);
-        return redirect()->route('tampildata')->with('Success', 'Data Berhasil Dirubah');
+        return redirect()->route('produk.tampildata')->with('Success', 'Data Berhasil Dirubah');
     }
 
     public function deletedata($id)
@@ -86,6 +86,6 @@ class ProdukController extends Controller
         $produk = $data->poto;
         unlink('photoproduk/' . $produk);
         $data->delete();
-        return redirect()->route('tampildata')->with('Success', 'Data Berhasil Dihapus');
+        return redirect()->route('produk.tampildata')->with('Success', 'Data Berhasil Dihapus');
     }
 }

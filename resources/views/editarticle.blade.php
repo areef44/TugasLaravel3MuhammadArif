@@ -2,12 +2,12 @@
 
 @section('editarticle')
 
-  <div class="container">
+  <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-8">
         <div class="card">
           <div class="card-body">
-       <form action="/updatearticle/{{ $article->id }}" method="POST" enctype="multipart/form-data">
+       <form action="/article/updatearticle/{{ $article->id }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label for="exampleInputEmail1">Judul Artikel : </label> 
@@ -39,8 +39,8 @@
                 <label for="exampleInputEmail1">Gambar:</label><br>
                 <input type="file" name="picture" class="mb-4">
               </div>
-              <button type="submit" class="btn btn-primary">Kirim</button>
-              <a class="btn btn-primary" href="/dataarticle" role="button" aria-expanded="false" aria-controls="collapseExample">Kembali</a>
+              <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send</button>
+              <a class="btn btn-danger" href="/article/dataarticle" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-sign-out" aria-hidden="true"></i> Kembali</a>
             </form>
           </div>
         </div>

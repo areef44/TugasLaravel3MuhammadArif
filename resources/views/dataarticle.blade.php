@@ -4,7 +4,9 @@
 @section('artikel')
 <div class="container">
 <div class="d-flex justify-content-end mt-2">
-    <a href={{ "/tambaharticle" }} class="btn btn-primary "><i class="fa-solid fa-square-plus"></i>  Tambah</a>
+    <a href={{ "/article/tambaharticle" }} class="btn btn-primary "><i class="fa-solid fa-square-plus"></i>  Add</a>
+    <a href={{ "/dashboard" }} class="btn btn-danger"><i class="fa fa-sign-out" aria-hidden="true"></i> Back</a>
+    </a>
 </div>
 
 <table class="table table-striped my-2">
@@ -36,7 +38,7 @@
         <img src="{{ asset('photoarticles/'.$item->picture) }}"" alt="picture" style="width: 100px">
       </td>
       <td>
-        <a href="/detailarticle/{{ $item->id }}" class="btn btn-success"><i class="fa-sharp fa-solid fa-pen-to-square"></i> </a>
+        <a href="/article/detailarticle/{{ $item->id }}" class="btn btn-success"><i class="fa-sharp fa-solid fa-pen-to-square"></i> </a>
         <a href="deletearticle/{{ $item->id }}" class="btn btn-danger"><i class="fa-sharp fa-solid fa-trash"></i></a>
       </td>
     </tr>
@@ -59,6 +61,10 @@
                    {{ $article->links() }}
               </ul>
   </div>
+   
   </div>
+
+
+
 
 @endsection

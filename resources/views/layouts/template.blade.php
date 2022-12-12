@@ -6,6 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>{{ $title }}</title>
+
+
  
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -52,6 +54,7 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h2>{{ $judul }}</h2>
+          <h2></h2>
           
         </div>
 
@@ -66,6 +69,8 @@
    @yield('editarticle')
    @yield('editdata')
    @yield('showarticle')
+   @yield('login')
+   @yield('admin')
 
   </main><!-- End #main -->
 
@@ -86,7 +91,7 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa-sharp fa-solid fa-arrow-up"></i></a>
 
   <!-- Vendor JS Files -->
 <script src={{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}></script>

@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Middleware\NoAuth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,33 +17,63 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ArticlesController::class, 'index',])->name('index');
+Route::get('/', [ArticlesController::class, 'index'])->name('index');
+
+Route::get('/showarticle/{id}', [ArticlesController::class, 'showarticle'])->name('showarticle');
+
+Route::middleware(['withAuth'])->prefix('article')
+    ->controller(ArticlesController::class)
+    ->name('article.')->group(
+        function () {
+
+            Route::get('/dataarticle',  'dataarticle')->name('dataarticle');
+
+            Route::get('/tambaharticle',  'tambaharticle')->name('tambaharticle');
+
+            Route::post('/insertarticle',  'insertarticle')->name('insertarticle');
+
+            Route::get('/detailarticle/{id}',  'detailarticle')->name('detailarticle');
+
+            Route::post('/updatearticle/{id}',  'updatearticle')->name('updatearticle');
+
+            Route::get('/deletearticle/{id}',  'deletearticle')->name('deletearticle');
+        }
+
+    );
+
 
 Route::get('/dataproduk', [ProdukController::class, 'dataproduk'])->name('dataproduk');
 
-Route::get('/tampildata', [ProdukController::class, 'tampildata'])->name('tampildata');
+Route::middleware(['withAuth'])->prefix('produk')
+    ->controller(ProdukController::class)
+    ->name('produk.')->group(
+        function () {
 
-Route::get('/tambahdata', [ProdukController::class, 'tambahdata'])->name('tambahdata');
+            Route::get('/tampildata', 'tampildata')->name('tampildata');
 
-Route::post('/insertdata', [ProdukController::class, 'insertdata'])->name('insertdata');
+            Route::get('/tambahdata', 'tambahdata')->name('tambahdata');
 
-Route::get('/detaildata/{id}', [ProdukController::class, 'detaildata'])->name('detaildata');
+            Route::post('/insertdata', 'insertdata')->name('insertdata');
 
-Route::post('/updatedata/{id}', [ProdukController::class, 'updatedata'])->name('updatedata');
+            Route::get('/detaildata/{id}', 'detaildata')->name('detaildata');
 
-Route::get('/deletedata/{id}', [ProdukController::class, 'deletedata'])->name('deletedata');
+            Route::post('/updatedata/{id}', 'updatedata')->name('updatedata');
+
+            Route::get('/deletedata/{id}', 'deletedata')->name('deletedata');
+        }
+
+    );
 
 
-Route::get('/dataarticle', [ArticlesController::class, 'dataarticle'])->name('dataarticle');
+Route::get('/dashboard', function () {
+    return view('dashboard', ["title" => "Halaman Administrator", "judul" => "Halaman Admin"]);
+})->middleware(['withAuth'])->name('dashboard');
 
-Route::get('/tambaharticle', [ArticlesController::class, 'tambaharticle'])->name('tambaharticle');
 
-Route::post('/insertarticle', [ArticlesController::class, 'insertarticle'])->name('insertarticle');
+Route::any("/login", [AuthController::class, "login"])
+    ->name('login')
+    ->middleware(["noAuth"]);
 
-Route::get('/detailarticle/{id}', [ArticlesController::class, 'detailarticle'])->name('detailarticle');
-
-Route::post('/updatearticle/{id}', [ArticlesController::class, 'updatearticle'])->name('updatearticle');
-
-Route::get('/deletearticle/{id}', [ArticlesController::class, 'deletearticle'])->name('deletearticle');
-
-Route::get('/showarticle/{id}', [ArticlesController::class, 'showarticle'])->name('showarticle');
+Route::any("/logout", [AuthController::class, "logout"])
+    ->name('logout')
+    ->middleware(["withAuth"]);

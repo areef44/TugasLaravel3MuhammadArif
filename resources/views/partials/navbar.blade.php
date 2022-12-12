@@ -10,14 +10,15 @@
         <ul>
           <li><a href="/">Beranda</a></li>
           <li><a href="/dataproduk">Produk</a></li>
-           <li class="dropdown"><a href="#"><span>Dashboard</span> <i class="bi bi-chevron-right"></i></a>
+          <li><a href="/dashboard">Dashboard</a></li>
+           {{-- <li class="dropdown"><a href="#"><span>Dashboard</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="/dataarticle">Manage Artikel</a></li>
                   <li><a href="/tampildata">Manage Produk</a></li>
                 </ul>
               </li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        <i class="bi bi-list mobile-nav-toggle"></i> --}}
       </nav><!-- .navbar -->
 
     </div>

@@ -5,7 +5,7 @@
       <div class="col-8">
         <div class="card">
           <div class="card-body">
-            <form action="/insertdata" method="POST" enctype="multipart/form-data">
+            <form action="/produk/insertdata" method="POST" enctype="multipart/form-data">
               @csrf
             <div class="form-group">
               <label for="exampleInputEmail1">Nama Produk : </label>
@@ -32,8 +32,8 @@
               <label for="exampleInputEmail1">Pilih Gambar:</label><br>
               <input type="file" name="poto" class="mb-4">
             </div>
-            <button type="submit" class="btn btn-primary">Kirim</button>
-            <a class="btn btn-primary" href="/tampildata" role="button" aria-expanded="false" aria-controls="collapseExample">Kembali</a>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send</button>
+            <a class="btn btn-danger" href="/produk/tampildata" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-sign-out" aria-hidden="true"></i> Back</a>
           </form>
           </div>
         </div>

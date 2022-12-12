@@ -6,7 +6,7 @@
       <div class="col-8">
         <div class="card">
           <div class="card-body">
-            <form action="/insertarticle" method="POST" enctype="multipart/form-data">
+            <form action="/article/insertarticle" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label for="exampleInputEmail1">Judul Artikel : </label>
@@ -41,7 +41,7 @@
                 <input type="file" name="picture" class="mb-4">
               </div>
               <button type="submit" class="btn btn-primary">Kirim</button>
-              <a class="btn btn-primary" href="{{"/dataarticle"}}" role="button" aria-expanded="false" aria-controls="collapseExample">Kembali</a>
+              <a class="btn btn-danger" href="{{"/article/dataarticle"}}" role="button" aria-expanded="false" aria-controls="collapseExample">Kembali</a>
             </form>
           </div>
         </div>

@@ -62,7 +62,7 @@ class ArticlesController extends Controller
             $article['picture'] = $file;
         }
         $article = Articles::create($article);
-        return redirect()->route('dataarticle')->with('Success', 'Artikel Berhasil Ditambahkan');
+        return redirect()->route('article.dataarticle')->with('Success', 'Artikel Berhasil Ditambahkan');
     }
 
     public function detailarticle($id)
@@ -87,7 +87,7 @@ class ArticlesController extends Controller
             $data['picture'] = $file;
         }
         $article->update($data);
-        return redirect()->route('dataarticle')->with('Success', 'Artikel Berhasil Dirubah');
+        return redirect()->route('article.dataarticle')->with('Success', 'Artikel Berhasil Dirubah');
     }
 
     public function deletearticle($id)
@@ -96,6 +96,6 @@ class ArticlesController extends Controller
         $gambar = $article->picture;
         unlink('photoarticles/' . $gambar);
         $article->delete();
-        return redirect()->route('dataarticle')->with('Success', 'Artikel Berhasil Dihapus');
+        return redirect()->route('article.dataarticle')->with('Success', 'Artikel Berhasil Dihapus');
     }
 }
